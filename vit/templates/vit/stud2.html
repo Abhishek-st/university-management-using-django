@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      {% load static %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        nav{
+        position:fixed;
+        }
+    </style>
+    <title>VIT!</title>
+  </head>
+  <body>
+
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">VIT</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://127.0.0.1:8000/vit/login">STUDENT</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://127.0.0.1:8000/admin/">ADMIN</a>
+      </li>
+
+    </ul>
+     <a class="nav-link" href="http://127.0.0.1:8000/vit/logout">LOGOUT</a>
+    <img src="{%static 'vit\images\logo.png'%}" width="150" height="50" />
+
+  </div>
+</nav>
+
+
+ <div class="row">
+  <div class="col-3">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">HOME</a>
+      <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">MARKS</a>
+      <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Messages</a>
+      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">OUTING</a>
+      <a class="list-group-item list-group-item-action" id="list-lib-list" data-toggle="list" href="#list-lib" role="tab" aria-controls="lib">LIBRARY</a>
+      <a class="list-group-item list-group-item-action" id="list-hos-list" data-toggle="list" href="#list-hos" role="tab" aria-controls="hos">HOSTEL</a>
+      <a class="list-group-item list-group-item-action" id="list-att-list" data-toggle="list" href="#list-att" role="tab" aria-controls="att">Attendence</a>
+    </div>
+  </div>
+  <div class="col-8">
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+
+          {% for x in s %}
+          <h3>{{x.regno}}</h3>
+          <h3>{{x.name}}</h3>
+          <h3>{{x.gender}}</h3>
+          {% endfor %}
+
+      </div>
+      <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+
+
+
+          <div class="row">
+  <div class="col-2">
+    <div class="list-group" id="list-tab2" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-s1-list" data-toggle="list" href="#list-s1" role="tab" aria-controls="home">sem1</a>
+      <a class="list-group-item list-group-item-action" id="list-s2-list" data-toggle="list" href="#list-s2" role="tab" aria-controls="profile">sem2</a>
+      <a class="list-group-item list-group-item-action" id="list-s3-list" data-toggle="list" href="#list-s3" role="tab" aria-controls="messages">sem3</a>
+      <a class="list-group-item list-group-item-action" id="list-s4-list" data-toggle="list" href="#list-s4" role="tab" aria-controls="settings">sem4</a>
+
+    </div>
+  </div>
+  <div class="col-10">
+    <div class="tab-content" id="nav-tabContent2">
+      <div class="tab-pane fade show active" id="list-s1" role="tabpanel" aria-labelledby="list-s1-list">
+
+
+           <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">CNAME</th>
+      <th scope="col">CAT1</th>
+      <th scope="col">CAT2</th>
+      <th scope="col">ASSN 1</th>
+      <th scope="col">ASSN 2</th>
+      <th scope="col">ASSN 3</th>
+      <th scope="col">FAT</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  {% for x in marks1%}
+
+    <tr>
+      <th scope="row">{{x.cid}}</th>
+      <td>{{x.cat1}}</td>
+      <td>{{x.cat2}}</td>
+      <td>{{x.ass1}}</td>
+      <td>{{x.ass2}}</td>
+      <td>{{x.ass3}}</td>
+      <td>{{x.fat}}</td>
+    </tr>
+   {% endfor %}
+   </tbody>
+</table>
+              <br>
+              <h3>GRADE :  {{z}}</h3>
+
+
+
+      </div>
+      <div class="tab-pane fade" id="list-s2" role="tabpanel" aria-labelledby="list-s2-list">
+
+                     <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">CNAME</th>
+      <th scope="col">CAT1</th>
+      <th scope="col">CAT2</th>
+      <th scope="col">ASSN 1</th>
+      <th scope="col">ASSN 2</th>
+      <th scope="col">ASSN 3</th>
+      <th scope="col">FAT</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  {% for x in marks2%}
+
+    <tr>
+      <th scope="row">{{x.cid}}</th>
+      <td>{{x.cat1}}</td>
+      <td>{{x.cat2}}</td>
+      <td>{{x.ass1}}</td>
+      <td>{{x.ass2}}</td>
+      <td>{{x.ass3}}</td>
+      <td>{{x.fat}}</td>
+    </tr>
+   {% endfor %}
+   </tbody>
+</table>
+              <br>
+              <h3>GRADE :  {{z2}}</h3>
+
+
+      </div>
+      <div class="tab-pane fade" id="list-s3" role="tabpanel" aria-labelledby="list-s3-list">
+
+                     <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">CNAME</th>
+      <th scope="col">CAT1</th>
+      <th scope="col">CAT2</th>
+      <th scope="col">ASSN 1</th>
+      <th scope="col">ASSN 2</th>
+      <th scope="col">ASSN 3</th>
+      <th scope="col">FAT</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  {% for x in marks3%}
+
+    <tr>
+      <th scope="row">{{x.cid}}</th>
+      <td>{{x.cat1}}</td>
+      <td>{{x.cat2}}</td>
+      <td>{{x.ass1}}</td>
+      <td>{{x.ass2}}</td>
+      <td>{{x.ass3}}</td>
+      <td>{{x.fat}}</td>
+    </tr>
+   {% endfor %}
+   </tbody>
+</table>
+              <br>
+          <h3>GRADE :  {{z3}}</h3>
+
+
+      </div>
+      <div class="tab-pane fade" id="list-s4" role="tabpanel" aria-labelledby="list-s4-list">
+
+                     <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">CNAME</th>
+      <th scope="col">CAT1</th>
+      <th scope="col">CAT2</th>
+      <th scope="col">ASSN 1</th>
+      <th scope="col">ASSN 2</th>
+      <th scope="col">ASSN 3</th>
+      <th scope="col">FAT</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  {% for x in marks4%}
+
+    <tr>
+      <th scope="row">{{x.cid}}</th>
+      <td>{{x.cat1}}</td>
+      <td>{{x.cat2}}</td>
+      <td>{{x.ass1}}</td>
+      <td>{{x.ass2}}</td>
+      <td>{{x.ass3}}</td>
+      <td>{{x.fat}}</td>
+    </tr>
+   {% endfor %}
+   </tbody>
+</table>
+              <br>
+               <h3>GRADE : {{z4}}</h3>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+      </div>
+      <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+
+          <div class="card text-center">
+            <div class="card-header">
+                Featured
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+            <div class="card-footer text-muted">
+                2 days ago
+            </div>
+          </div>
+
+      </div>
+      <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
+
+          <a href="http://127.0.0.1:8000/admin/vit/outing/"> <h2> WANT TO TAKE LEAVE </h2></a>
+          <br>
+          <br>
+
+          <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">OUT</th>
+      <th scope="col">IN</th>
+       <th scope="col">REASON</th>
+      <th scope="col">PLACE</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for a in out %}
+    <tr>
+      <th scope="row">{{a.id}}</th>
+      <td>{{a.out}}</td>
+      <td>{{a.ent}}</td>
+      <td>{{a.reason}}</td>
+      <td>{{a.place}}</td>
+    </tr>
+  {% endfor %}
+
+     </tbody>
+</table>
+
+      </div>
+
+        <div class="tab-pane fade" id="list-lib" role="tabpanel" aria-labelledby="list-lib-list">
+
+            <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">BookId</th>
+      <th scope="col">Book Name</th>
+      <th scope="col">Issue Date</th>
+      <th scope="col">Due Date</th>
+      <th scope="col">Return Date</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for x in lib %}
+    <tr>
+      <th scope="row">{{x.id}}</th>
+      <td>{{x.bookid__bookid}}</td>
+      <td>{{x.bookid__bname}}</td>
+      <td>{{x.issuedate}}</td>
+      <td>{{x.duedate}}</td>
+      <td>{{x.returndate}}</td>
+    </tr>
+  {% endfor %}
+      </tbody>
+</table>
+        </div>
+
+               <div class="tab-pane fade" id="list-hos" role="tabpanel" aria-labelledby="list-hos-list">
+
+            <table class="table">
+  <thead>
+    <tr>
+
+      <th scope="col">Block</th>
+      <th scope="col">ROOM NO</th>
+      <th scope="col">TYPE</th>
+      <th scope="col">BEDS</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for x in hos %}
+    <tr>
+
+      <td>{{x.hid__block}}</td>
+      <td>{{x.hid__roommo__roomno}}</td>
+      <td>{{x.hid__roommo__type}}</td>
+      <td>{{x.hid__roommo__nbeaded}}</td>
+    </tr>
+  {% endfor %}
+      </tbody>
+</table>
+
+
+        </div>
+
+
+                       <div class="tab-pane fade" id="list-att" role="tabpanel" aria-labelledby="list-att-list">
+
+            <table class="table">
+  <thead>
+    <tr>
+
+      <th scope="col">#</th>
+      <th scope="col">CNAME</th>
+      <th scope="col">DATE</th>
+      <th scope="col">ATTENDENCE</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for x in att %}
+    <tr>
+
+      <td>{{x.id}}</td>
+      <td>{{x.clid__cid__cname}}</td>
+      <td>{{x.date}}</td>
+      <td>{{x.attendence}}</td>
+    </tr>
+  {% endfor %}
+      </tbody>
+</table>
+
+
+        </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+   <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

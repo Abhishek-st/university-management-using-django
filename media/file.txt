@@ -1,0 +1,35 @@
+Name: Abhishek sunil Tiwari
+Regno: 18bce1156
+
+create table student(regnovarchar(10) constraint regno_pk primary key, sname char(20), cgpavarchar(4));
+create table coursedetails(ccodevarchar(20) constraint ccode_pk primary key,Cname char(20), credits number);
+create table faculty(empidvarchar(20) constraint emp_pk primary key,fname char(20),designation char(20));
+create table course_student(regnovarchar(20), ccodevarchar(20),constraint fk_regno foreign key(regno) references student(regno));
+alter table course_student add constraint fk_ccode foreign key(ccode) references coursedetails(ccode) on delete set null;
+create table course_faculty(fid varchar(20),ccodevarchar(20),constraint fk_fid foreign key(fid) references faculty(empid));
+alter table course_faculty add constraint fk_ccode1 foreign key(ccode) references coursedetails(ccode) on delete set null;
+create table student_faculty(regnovarchar(20),fid varchar(20),role char(30),constraint fk_fid1 foreign key(fid) references faculty(empid));
+alter table student_faculty add constraint fk_regno3 foreign key(regno) references student(regno) on delete set null;
+1.	select ccode from course_student intersect select ccode from course_faculty;
+CCODE
+cse1002
+cse1004
+cse2004
+cse3002
+hum1001
+2.	select ccode from course_faculty minus select ccode from course_student;
+no data found
+3.	select ccode from coursedetails minus select ccode from course_faculty;
+
+no data found
+4.	select regno from student minus select regno from course_student;
+no data found
+5.	select empid from faculty minus select fid from course_faculty;
+nodata found
+6.	select * from faculty where designation not in ('asst. prof.','prof.');
+no data found
+
+
+
+
+
